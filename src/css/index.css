@@ -11,14 +11,13 @@
     background: #252525;
   }
 
-  /* #app {
-    background: none;
-    border: none;
-  } */
-
   .cc-bg svg {
     width: 100%;
     height: auto;
+  }
+
+  .cc-number {
+    color: #e8e8e8;
   }
 }
 
