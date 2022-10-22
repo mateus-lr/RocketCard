@@ -1,5 +1,6 @@
 import "./css/index.css";
 import IMask from 'imask';
+import Swal from 'sweetalert2';
 
 const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path");
 const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path");
@@ -80,12 +81,6 @@ const cardNumberPattern = {
 
 const cardNumberMasked = IMask(cardNumber, cardNumberPattern);
 
-const addButton = document.querySelector("#add-card");
-
-addButton.addEventListener("click", () => {
-  alert("Cartão adicionado com sucesso!");
-});
-
 document.querySelector("form").addEventListener("submit", event => {
   event.preventDefault()
 })
@@ -126,3 +121,22 @@ function updateExpirationDate(date) {
   const ccExpiration = document.querySelector(".cc-expiration .value")
   ccExpiration.innerText = date.length === 0 ? "02/32" : date
 }
+
+document.querySelector("#add-card").addEventListener("click", function () {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  
+  Toast.fire({
+    icon: 'success',
+    title: 'Cartão adicionado com sucesso'
+  })
+})
