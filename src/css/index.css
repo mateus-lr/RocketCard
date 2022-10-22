@@ -8,13 +8,13 @@
   }
 
   body {
-    background: #202024;
+    background: #252525;
   }
 
-  #app {
+  /* #app {
     background: none;
     border: none;
-  }
+  } */
 
   .cc-bg svg {
     width: 100%;
